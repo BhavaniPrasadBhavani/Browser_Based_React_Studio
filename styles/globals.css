@@ -1,0 +1,53 @@
+.root-vars{ display:none }
+:root{
+  /* Light theme (default) */
+  --bg: #f3f4f6;
+  --panel: #ffffff;
+  --text: #0b1220;
+  --muted: #64748b;
+  --accent: #60a5fa;
+  --surface: #ffffff;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"]{
+  --bg: #071024;
+  --panel: #071121;
+  --text: #e6eef8;
+  --muted: #94a3b8;
+  --accent: #60a5fa;
+  --surface: #071121;
+}
+
+body{ margin:0; font-family: Inter, Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text) }
+.app-shell{ height:100vh; display:flex; flex-direction:column }
+.topbar{ display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:var(--panel); box-shadow:0 1px 0 rgba(0,0,0,0.05) }
+.top-actions{ display:flex; gap:8px; align-items:center }
+.three-col{ display:flex; flex-direction:column; gap:12px; height:calc(100vh - 64px); padding:12px }
+.col{ background:var(--panel); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; width:100% }
+
+/* Vertical layout sizes: Files (top), Editor (flexible), Live Preview (bottom) */
+.explorer{ flex: 0 0 160px; min-height: 0 }
+.editor{ flex: 1 1 auto; min-height: 200px }
+.preview{ flex: 0 0 360px; min-height: 0 }
+.preview-box{ height:100%; }
+.file-item.active{ background:rgba(96,165,250,0.12) }
+
+/* Pane header + body layout */
+.pane-header{ padding:10px 12px; border-bottom:1px solid rgba(0,0,0,0.06); font-weight:600; background:transparent }
+.pane-body{ padding:8px; flex:1 1 auto; overflow:auto }
+
+/* Ensure code editor and preview fill their pane body */
+.pane-body .sp-wrapper, .pane-body .sp-layout, .pane-body .sp-preview, .pane-body .sp-editor {
+  height:100% !important;
+}
+
+/* Better spacing for the file list controls */
+.file-list{ max-height: calc(100% - 64px); overflow:auto }
+
+/* Inputs & buttons use theme variables */
+input{ padding:6px 8px; border-radius:4px; border:1px solid rgba(0,0,0,0.08); background:var(--panel); color:var(--text) }
+button{ padding:6px 10px; border-radius:6px; border:1px solid rgba(0,0,0,0.08); background:transparent; color:var(--text); cursor:pointer }
+.theme-toggle{ border-radius:6px; padding:6px 10px; background:transparent }
+
+
